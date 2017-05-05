@@ -20,7 +20,7 @@ class Project
   define_singleton_method(:find) do |id|
     found_project = nil
     Project.all().each() do |project|
-      if project.id().==(id)
+      if project.id().== id
         found_project = project
       end
     end
@@ -37,36 +37,24 @@ class Project
   end
 
   define_method(:volunteers) do |id|
-    # found_project
-    # returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{id}")
-    # volunteers = []
-    # returned_volunteers.each() do |volunteer|
-    #   name = volunteer.fetch("name")
-    #   project_id = volunteer.fetch("project_id").to_i
-    #   volunteers.push(Volunteer.new({:name => name, :project_id => project_id}))
-    # end
-    # volunteers
     found_volunteers = []
     Volunteer.all().each() do |volunteer|
       if volunteer.project_id().==(id)
-        found_volunteers.push(task)
+        found_volunteers.push(volunteer)
       end
     end
     found_volunteers
   end
 
+  define_method(:update) do |attributes|
+   @id = self.id()
+   @name = attributes.fetch(:name)
+   DB.exec("UPDATE projects SET name = '#{@name}' WHERE id = #{@id};")
+  end
 
-#   define_method(:sort) do
-#     tasks = DB.exec("SELECT * FROM tasks ORDER BY due_date;")
-#     ordered_tasks = []
-#     tasks.each do |task|
-#       description = task.fetch("description")
-#       list_id = task.fetch("list_id").to_i()
-#       due_date = task.fetch("due_date")
-#       ordered_tasks.push(Task.new({:description => description, :list_id => list_id, :due_date => due_date}))
-#     end
-#     ordered_tasks
-#   end
-
+  define_method(:delete) do
+   DB.exec("DELETE FROM projects WHERE id = #{self.id()};")
+   DB.exec("DELETE FROM volunteers WHERE project_id = #{self.id()};")
+  end
 
 end

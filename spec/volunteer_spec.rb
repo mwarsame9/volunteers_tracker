@@ -36,4 +36,12 @@ describe(Volunteer) do
     end
   end
 
+  describe("#==") do
+    it("is the same volunteer if they have the same name") do
+      volunteer1 = Volunteer.new({:name => "John Doe", :project_id => 1})
+      volunteer2 = Volunteer.new({:name => "John Doe", :project_id => 1})
+      expect(volunteer1).to(eq(volunteer2))
+    end
+  end
+
 end

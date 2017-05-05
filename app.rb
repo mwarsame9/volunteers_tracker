@@ -4,7 +4,6 @@ also_reload("lib/**/*.rb")
 require("./lib/project")
 require("./lib/volunteer")
 require("pg")
-require("pry")
 
 DB = PG.connect({:dbname => "volunteer_tracker"})
 
@@ -20,11 +19,11 @@ post("/projects") do
   name = params.fetch("name")
   project = Project.new({:id => nil, :name => name})
   project.save()
-  erb(:success)
+  erb(:project_success)
 end
 
 get('/projects') do
-  @projects = Project.all()
+  @project = Project.all()
   erb(:projects)
 end
 
