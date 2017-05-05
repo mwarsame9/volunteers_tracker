@@ -1,6 +1,6 @@
 require("spec_helper")
 
-describe("Project") do
+describe(Project) do
   describe(".all") do
     it("starts off with no projects") do
       expect(Project.all()).to(eq([]))

@@ -37,15 +37,15 @@ class Project
   end
 
   define_method(:volunteers) do |id|
-    # found_list
-    # returned_tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{id}")
-    # tasks = []
-    # returned_tasks.each() do |task|
-    #   description = task.fetch("description")
-    #   list_id = task.fetch("list_id").to_i
-    #   tasks.push(Task.new({:description => description, :list_id => list_id}))
+    # found_project
+    # returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{id}")
+    # volunteers = []
+    # returned_volunteers.each() do |volunteer|
+    #   name = volunteer.fetch("name")
+    #   project_id = volunteer.fetch("project_id").to_i
+    #   volunteers.push(Volunteer.new({:name => name, :project_id => project_id}))
     # end
-    # tasks
+    # volunteers
     found_volunteers = []
     Volunteer.all().each() do |volunteer|
       if volunteer.project_id().==(id)
