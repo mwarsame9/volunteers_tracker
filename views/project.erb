@@ -15,14 +15,8 @@
 
 <h3>Add a volunteer to <%= @project.name() %> </h3>
 
-<form action="/volunteers" method="post">
-  <input id="project_id" name="project_id" type="hidden" value="<%= @project.id() %>">
-
-  <label for="name">Name of the volunteer:</label>
-  <input id="name" name="name" type="text">
-
-  <button type="submit">Add volunteer</button>
-</form>
+<p><a href="/projects/<%= @project.id() %>/edit">Edit <%= @project.name() %></a></p>
+<p><a href="/">Return to Main Page</a></p>
 
 <hr>
 

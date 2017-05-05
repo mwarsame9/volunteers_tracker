@@ -4,8 +4,8 @@
   <h3>Here are your projects:</h3>
 
   <ul>
-    <% @projects.each() do |list| %>
-      <li><a href="/projects/<%= project.id %>"><%= project.name  %></a> </li>
+    <% @projects.each() do |project| %>
+      <li><a href="/projects/<%= project.id %>"><%= project.name()  %></a> </li>
     <% end %>
   </ul>
 

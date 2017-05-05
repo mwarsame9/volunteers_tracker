@@ -20,7 +20,7 @@ class Project
   define_singleton_method(:find) do |id|
     found_project = nil
     Project.all().each() do |project|
-      if project.id().== id
+      if project.id().to_i == id
         found_project = project
       end
     end
@@ -47,7 +47,6 @@ class Project
   end
 
   define_method(:update) do |attributes|
-   @id = self.id()
    @name = attributes.fetch(:name)
    DB.exec("UPDATE projects SET name = '#{@name}' WHERE id = #{@id};")
   end
