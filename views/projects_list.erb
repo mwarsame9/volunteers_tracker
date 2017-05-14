@@ -1,0 +1,18 @@
+<h1>Please click the project that you would like to enter.</h1>
+
+<% if @projects.any?() %>
+  <h3>These are the projects:</h3>
+
+  <ul>
+    <% @projects.each() do |project| %>
+      <li><a href="/project/<%= project.id()%>"><%= project.name() %><%=" "%></a> </li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+    <p>There are no projects yet!</p>
+
+<% end %>
+
+<a href="/" class="btn btn-info">Back</a>
