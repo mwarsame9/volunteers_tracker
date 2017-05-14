@@ -1,0 +1,16 @@
+<% if @projects.any?() %>
+
+<h2>Here are all projects</h2>
+
+  <ul>
+    <% @projects.each() do |project| %>
+      <li><a href="/projects/<%= project.id() %>"><%= project.name() %></a></li>
+    <% end %>
+  </ul>
+
+<% else %>
+    <p>There are no projects yet!</p>
+<% end %>
+
+<a href="/projects/new"  class="btn btn-primary">Add New Project</a><br><br>
+<a href="/"  class="btn btn-primary">Home</a><br><br>

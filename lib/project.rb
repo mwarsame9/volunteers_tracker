@@ -36,14 +36,15 @@ class Project
     self.name().==(another_project.name()).&(self.id().==(another_project.id()))
   end
 
-  define_method(:volunteers) do |id|
-    found_volunteers = []
-    Volunteer.all().each() do |volunteer|
-      if volunteer.project_id().==(id)
-        found_volunteers.push(volunteer)
-      end
+  define_method(:volunteers) do
+    project_volunteers = []
+    volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{self.id()};")
+    volunteers.each() do |volunteer|
+      name = volunteer.fetch("name")
+      project_id = volunteer.fetch("project_id").to_i()
+      project_volunteers.push(Volunteer.new({:name => name, :project_id => project_id}))
     end
-    found_volunteers
+    project_volunteers
   end
 
   define_method(:update) do |attributes|

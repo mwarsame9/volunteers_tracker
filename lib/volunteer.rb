@@ -24,4 +24,14 @@ class Volunteer
   define_method(:==) do |another_volunteer|
     self.name().==(another_volunteer.name()).&(self.project_id().==(another_volunteer.project_id()))
   end
+
+  define_method(:update) do |attributes|
+   @name = attributes.fetch(:name)
+   DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
+  define_method(:delete) do
+   DB.exec("DELETE FROM volunteers WHERE project_id = #{self.id()};")
+  end
+
 end
