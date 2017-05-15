@@ -8,16 +8,6 @@
 
  The application allows employees to track projects and the volunteers working on them. Each volunteer will belong to only one project (one project, many volunteers). Employees will be able to view, add, update and delete projects, view, add, update and delete volunteers.
 
- ## Specifications
-
- | Behavior | Input | Output |
- |----------|-------|--------|
- | Program takes letters as input | tea | valid |
- | Program accounts for different cases | Tea | valid |
- | Program allows user to enter definitions for each word | tea | type of beverage |
- | Program lists all inputted words in homepage | computer | tea, computer|
- | Program takes user to definition of word when clicked | tea | type of beverage |
-
  ## Setup/Installation Requirements
  *In terminal run*
  * postgres
