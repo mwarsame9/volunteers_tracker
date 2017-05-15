@@ -10,18 +10,14 @@ describe(Volunteer) do
   end
 
   describe(".all") do
-    it("is empty at first") do
-      volunteer1 = Volunteer.new({:name => "John Doe"})
-      volunteer1.save
-      volunteer2 = Volunteer.new({:name => "Jane Doe"})
-      volunteer2.save
-      expect(Volunteer.all()).to(eq(volunteer1, volunteer2))
+    it("starts off with no projects") do
+      expect(Volunteer.all()).to(eq([]))
     end
   end
 
   describe('#save') do
     it("adds a volunteer to the array of saved volunteers") do
-      test_volunteer = Volunteer.new({:name => "John Doe")
+      test_volunteer = Volunteer.new({:name => "John Doe"})
       test_volunteer.save()
       expect(Volunteer.all()).to(eq([test_volunteer]))
     end
@@ -35,7 +31,7 @@ describe(Volunteer) do
   end
 
   describe("#id") do
-    it("will return the name of the volunteer") do
+    it("will return the ID of the volunteer") do
       volunteer1 = Volunteer.new({:name => "John Doe", :id => 1})
       expect(volunteer1.id).to(eq(1))
     end
@@ -82,7 +78,7 @@ describe(Volunteer) do
       volunteer1.save
       volunteer2 = Volunteer.new({:name => "Jane Doe"})
       volunteer2.save
-      expect(Volunteer.available).to(eq([volunteer1, volunteer2]))
+      expect(Volunteer.free).to(eq([volunteer1, volunteer2]))
     end
   end
 

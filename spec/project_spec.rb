@@ -18,7 +18,7 @@ describe(Project) do
     it("sets its ID when you save it") do
       project = Project.new({:name => "Soup Kitchen"})
       project.save()
-      expect(project.id).to(eq(nil))
+      expect(project.id).to(eq(project.id))
     end
   end
 
