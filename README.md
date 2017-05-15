@@ -41,7 +41,7 @@
 
  ## Known Bugs
 
- Sinatra
+ None
 
  ## Support and contact details
 
