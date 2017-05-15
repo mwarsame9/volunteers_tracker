@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The Volunteer Tracker:</title>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  <link  rel='stylesheet' href="/css/styles.css" type="text/css">
-</head>
-<body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1>The Volunteer Tracker</h1>
+  <head>
+    <title>Volunteer Tracker</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link  rel='stylesheet' href="/css/styles.css" >
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li class="active"><a href="/projects">View All Projects</a></li>
+        <li class="active"><a href="/volunteers">View All Volunteers</a></li>
+        <li class="active"><a href="/project_form">Add a Project</a></li>
+        <li class="active"><a href="/volunteer_form">Add a Volunteer</a></li>
+      </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
     </div>
-    <hr>
-    <div>
-    <%= yield %>
-    </div>
-  </div>
-</body>
+
+  </body>
 </html>

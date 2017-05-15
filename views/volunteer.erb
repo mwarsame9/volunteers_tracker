@@ -1,8 +1,31 @@
-<h1><%= @volunteer.name() %></h1>
+<h3><%= @volunteer.name %></h3>
 
 
-<p><a href="/volunteers/<%= @volunteer.id() %>/edit">Edit Volunteer</a></p>
+    <form action="/edit_volunteer/<%= @volunteer.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label>Edit volunteer:</label>
+      <input type="text" name="edit-name">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <br>
 
+    <p>Current Project:</p>
+    <% if @volunteer.project_id.to_i == 0 %>
+      <p>This volunteer doesn't have a project</p>
+    <% else %>
+      <%= @project.name %><br>
+      <form action="/remove_project_from_volunteer/<%= @volunteer.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="project" value="<%= @project.id %>">
+        <br><br>
+        <button type="submit" class="btn btn-danger"> Remove volunteer from project</button>
+      </form>
+    <% end %>
 
-<a href="/volunteers">View All Volunteers</a><br>
-<a href="/"  class="btn btn-primary">Home</a><br><br><br>
+    <br><br>
+
+    <form action="/delete_volunteer/<%= @volunteer.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-danger">Delete Volunteer</button>
+    </form>
+    <br>

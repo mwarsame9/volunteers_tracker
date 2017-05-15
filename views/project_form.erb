@@ -1,12 +1,7 @@
-<h3>Create New Project</h3>
+<h1>Add a Project</h1>
 
-<form action="/projects" method="post">
-  <div class="form-group">
-    <label class="form-label" for="name">Project name:</label>
-    <input class="form-control" id="project-name" type="text" name="name"><br>
-
-    <button type="submit" class="btn btn-success">Add Project</button>
-  </div>
+<form action="/new_project" method="post">
+  <label>Name of Project:</label>
+  <input type="text" name="project_name" required>
+  <button type="submit">Submit</button>
 </form>
-
-<a href="/"  class="btn btn-primary">Home</a><br><br><br>

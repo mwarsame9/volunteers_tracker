@@ -1,17 +1,12 @@
-<% if @volunteers.any?() %>
+<h1>All Volunteers</h1>
 
-<h2>Here are all volunteers</h2>
-
-  <ul>
-    <% @volunteers.each() do |volunteer| %>
-      <li><a href="/volunteers/<%= volunteer.id %>"><%= volunteer.name() %></a></li>
-    <% end %>
-  </ul>
-
-
+<% if @volunteers == [] %>
+<p>There are currently no volunteers in the database</p>
+<p><a href="/volunteer_form">Click to create a new volunteer</a></p>
 <% else %>
-    <p>There are no volunteers yet!</p>
+<ol>
+  <% @volunteers.each do |volunteer| %>
+  <li><a href="/volunteer/<%= volunteer.id %>"><%= volunteer.name %></a></li>
+  <% end %>
+</ol>
 <% end %>
-
-
-<a href="/"  class="btn btn-primary">Home</a><br><br><br>
